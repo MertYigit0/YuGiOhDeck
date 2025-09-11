@@ -62,11 +62,13 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.glide)
+    implementation("io.coil-kt.coil3:coil-compose:3.3.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.navigation.compose)
 }
