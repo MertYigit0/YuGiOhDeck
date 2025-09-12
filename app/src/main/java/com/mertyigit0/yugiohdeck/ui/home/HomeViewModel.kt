@@ -29,8 +29,14 @@ class HomeViewModel @Inject constructor(
         private set
 
     val filteredCards: List<CardDto>
-        get() = if (searchQuery.isBlank()) cards
-        else cards.filter { it.name.contains(searchQuery, ignoreCase = true) }
+        get() {
+            val query = searchQuery.trim()
+            if (query.isBlank()) return cards
+            return cards.filter { card ->
+                card.name.contains(query, ignoreCase = true) ||
+                        card.id.toString().contains(query)
+            }
+        }
 
     init {
         fetchCards()
@@ -51,6 +57,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onSearchQueryChange(query: String) {
-        searchQuery = query
+        searchQuery = query.trimStart()
     }
 }
