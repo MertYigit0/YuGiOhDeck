@@ -9,3 +9,17 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+
+
+// Light mode
+val LightPrimary = Color(0xFF1A1A2E)
+val LightSecondary = Color(0xFF2D2D44)
+val LightAccent = Color(0xFFF8C332)
+val LightBackground = Color(0xFFE0E0E0)
+
+// Dark mode
+val DarkPrimary = Color(0xFF1A1C1E)
+val DarkSecondary = Color(0xFF2C2E30)
+val DarkAccent = Color(0xFF447BBA)
+val DarkBackground = Color(0xFFE0E0E0)

@@ -1,6 +1,7 @@
 package com.mertyigit0.yugiohdeck.ui.home
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,7 +43,13 @@ fun HomeScreen(
     val errorMessage = viewModel.errorMessage
     val searchQuery = viewModel.searchQuery
 
-    Column(Modifier.fillMaxSize()) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary),
+
+
+    ) {
 
         // Search Bar
         OutlinedTextField(
@@ -50,7 +58,13 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            label = { Text("Search Cards") }
+            label = { Text("Search Cards") },
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.secondary,
+                unfocusedContainerColor = MaterialTheme.colorScheme.secondary,
+                disabledContainerColor = MaterialTheme.colorScheme.secondary,
+                errorContainerColor = MaterialTheme.colorScheme.secondary
+            )
         )
 
         // MyDeck Button
@@ -102,7 +116,10 @@ fun CardItem(card: CardDto, onClick: () -> Unit) {
             .padding(8.dp)
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        elevation = CardDefaults.cardElevation(4.dp)
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.secondary
+        )
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
